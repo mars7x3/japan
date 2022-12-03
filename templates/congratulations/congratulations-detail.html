@@ -1,0 +1,179 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block page %}
+
+
+<div class="wrapper">
+
+
+    <div id="content_hero" style="background-image: url({{ congratulations.banner.url }})">
+        <img src="{% static 'images/scroll-arrow.svg' %}" alt="Scroll down" class="scroll"/>
+
+        <div class="container">
+            {% block congratulations %}active{% endblock %}
+
+            <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0"
+                 data-translatey="100">
+                <div class="col-md-9">
+                    <span class="title">Action, Adventure, Sci-Fi</span>
+                    <h1>Transformers: The Last Knight</h1>
+                    <p>Humans and Transformers are at war, Optimus Prime is gone. The key to saving our future lies
+                        buried in the secrets of the past, in the hidden history of Transformers on Earth.</p>
+                    <div class="buttons">
+<span class="certificate">
+PG
+</span>
+                        <a href="https://youtu.be/RhFMIRuHAL4" data-vbtype="video" class="venobox btn btn-default">
+                            <i class="material-icons">play_arrow</i>
+                            <span>Play trailer</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section single-movie">
+        <div class="row">
+            <div class="col-sm-7">
+                <h2>{{ congratulations.category }}</h2>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="{{ congratulations.image.url }}" alt="Transformers: The Last Knight" class="poster">
+                        <div class="share">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+
+                            <a href="#">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3 class="no-underline">{{ congratulations.name }}</h3>
+                        <p>{{congratulations.description}}</p>
+
+<!--                        <ul class="movie-info">-->
+<!--                            <li><i>Director</i> Michael Bay</li>-->
+<!--                       -->
+<!--                        </ul>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-sm-push-1">
+                <h2>Информация</h2>
+                <ul class="show-times">
+                    <li><i>Цена</i> <span class="time">{{ congratulations.price }}</span></li>
+                </ul>
+                 <ul class="show-times">
+                    <li><i>Время</i> <span class="time">{{ congratulations.deadline }} дня</span></li>
+                </ul>
+                <a href="{% url 'contacts' %}">
+                    <button class="btn btn-ghost">Заказать</button>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <section class="dark">
+        <div class="container section remove-bottom-padding">
+            <div class="row comingSoon-slides singleGallery">
+                <div class="col-sm-12">
+                    <div class="row single-slide slideOne">
+                        <div class="bg" style="background: url({% static 'images/gallery-bg.png' %});"></div>
+                        <div class="col-sm-12 slide-video">
+                            <a href="https://youtu.be/AntcyqJ6brc" data-vbtype="video" class="venobox video">
+                                <i class="material-icons">play_arrow</i>
+                                <img src="{% static 'images/gallery-slide-1.jpg' %}" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row single-slide slideTwo">
+                        <div class="bg" style="background: url({% static 'images/gallery-bg-2.png' %});"></div>
+                        <div class="col-sm-12 slide-video">
+                            <a href="https://youtu.be/AntcyqJ6brc" data-vbtype="video" class="venobox video">
+                                <i class="material-icons">play_arrow</i>
+                                <img src="{% static 'images/gallery-slide-2.jpg' %}" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="slick-carousel gallery" id="comingSoon">
+                        <div data-dynamicclass="slideOne">
+                            <a href="#">
+                                <img src="{% static 'images/gallery-thumb-1.png' %}" alt="">
+                            </a>
+                        </div>
+                        <div data-dynamicclass="slideTwo">
+                            <a href="#">
+                                <img src="{% static 'images/gallery-thumb-2.png' %}" alt="">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container section single-movie">
+        <div class="row">
+            <div class="col-sm-7">
+                <h2>Отзывы</h2>
+                <div class="comments">
+                    <div class="row">
+
+                        <div class="col-sm-9">
+                            <span class="date">February 2, at 2:34pm</span>
+                            <h4 class="no-underline">Luke Barrett</h4>
+                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                                Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit
+                                litterarum formas humanitatis per seacula quarta decima et quinta decima.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-4 col-sm-push-1">
+                <h2>Оставить отзыв</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Имя *</label>
+                        <input type="text"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Телефон *</label>
+                        <input type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Текст *</label>
+                        <textarea rows="5"></textarea>
+                    </div>
+                    <div class="form-group right-align">
+                        <button class="btn btn-ghost">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <div class="section small-padding border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 cta">
+                   <p>Возникли вопросы?</p>
+                    <p class="gradient-text">0554 730 944</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

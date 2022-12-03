@@ -1,0 +1,325 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block page %}
+
+
+ <div id="hero" class="carousel slide carousel-fade" data-ride="carousel">
+        <img src="{% static 'images/scroll-arrow.svg' %}" alt="Scroll down" class="scroll"/>
+
+        <div class="container">
+            {%block home%} active {%endblock%}
+
+            <ol class="carousel-indicators">
+                <li data-target="#hero" data-slide-to="0" class="active"></li>
+                <li data-target="#hero" data-slide-to="1"></li>
+                <li data-target="#hero" data-slide-to="2"></li>
+                <li data-target="#hero" data-slide-to="3"></li>
+
+            </ol>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url(https://i.ytimg.com/vi/MLbZkqRw4BI/maxresdefault.jpg)">
+
+                <div class="container">
+                    <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1"
+                         data-opacity="0" data-translatey="100">
+                        <div class="col-md-9">
+                            <span class="title">Мирбек Атабеков</span>
+                            <h1>Кечки Бишкек</h1>
+                            <p>Кечки Бишкек - мен көргөн тагдырга болдуң себеп
+Музга айланган көңүлдүн дартына жообуң керек</p>
+                            <div class="buttons">
+<span class="certificate">
+NEW
+</span>
+                                <a href="https://youtu.be/RhFMIRuHAL4" data-vbtype="video"
+                                   class="venobox btn btn-default">
+                                    <i class="material-icons">play_arrow</i>
+                                    <span>Смотреть</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({% static 'images/hero-2.jpg' %})">
+
+                <div class="container">
+                    <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1"
+                         data-opacity="0" data-translatey="100">
+                        <div class="col-md-9">
+                            <span class="title">Action, Adventure, Fantasy</span>
+                            <h1>End of the World: Part II</h1>
+                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                                Mirum est notare quam littera gothica, quam nunc putamu.</p>
+                            <div class="buttons">
+<span class="certificate">
+15
+</span>
+                                <a href="https://youtu.be/RhFMIRuHAL4" data-vbtype="video"
+                                   class="venobox btn btn-default">
+                                    <i class="material-icons">play_arrow</i>
+                                    <span>Play trailer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({% static 'images/hero-3.jpg)' %}">
+
+                <div class="container">
+                    <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1"
+                         data-opacity="0" data-translatey="100">
+                        <div class="col-md-9">
+                            <span class="title">Action, Adventure, Fantasy</span>
+                            <h1>End of the World: Part II</h1>
+                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                                Mirum est notare quam littera gothica, quam nunc putamus parum.</p>
+                            <div class="buttons">
+<span class="certificate">
+PG
+</span>
+                                <a href="https://youtu.be/RhFMIRuHAL4" data-vbtype="video"
+                                   class="venobox btn btn-default">
+                                    <i class="material-icons">play_arrow</i>
+                                    <span>Play trailer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url({% static 'images/hero-2.jpg' %})">
+
+                <div class="container">
+                    <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1"
+                         data-opacity="0" data-translatey="100">
+                        <div class="col-md-9">
+                            <span class="title">Action, Adventure, Fantasy</span>
+                            <h1>End of the World: Part II</h1>
+                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                                Mirum est notare quam littera gothica, quam nunc putamu.</p>
+                            <div class="buttons">
+<span class="certificate">
+15
+</span>
+                                <a href="https://youtu.be/RhFMIRuHAL4" data-vbtype="video"
+                                   class="venobox btn btn-default">
+                                    <i class="material-icons">play_arrow</i>
+                                    <span>Play trailer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container section">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Популярные</h2>
+                <div class="slick-carousel" id="newIn">
+
+                    {% for ps in popular_stars %}
+                    <div class="movie-slide">
+                        <div class="movie-poster">
+                            <aside>
+                                <div>
+                                    <a href="https://youtu.be/d96cjJhvlMA" data-vbtype="video" class="venobox play">
+                                        <i class="material-icons">play_arrow</i>
+                                    </a>
+                                    <a href="single-movie.html" class="read-more">Смотреть</a>
+                                    <span class="date">Видеообращение</span>
+                                </div>
+                            </aside>
+                            <a href="#">
+                                <img src="{{ ps.image.url }}" alt="Image"/>
+                            </a>
+                        </div>
+                        <h4 class="no-underline">{{ ps.name }}</h4>
+                        <div class="star-rating">
+                            <p>{{ ps.category }}</p>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tabs movies">
+                    <ul>
+                        {% for c in category %}
+                        <li><a href="#{{ c.id }}">{{ c.title }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+
+                    <div id="{{ cat1.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat1.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="{% url 'congratulations' s.pk %}" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                    <div id="{{ cat2.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat2.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="{% url 'congratulations' s.pk %}" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div id="{{ cat3.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat3.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="{% url 'congratulations' s.pk %}" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="dark">
+        <div class="container section remove-bottom-padding">
+            <div class="row comingSoon-slides">
+                <div class="col-sm-12">
+                    <h2>Примеры выполненных заказов</h2>
+                    {% for s in stars %}
+                    <div class="row single-slide slide{{ s.id }}">
+                        <div class="bg" style="background: url({{s.banner.url}});"></div>
+                        <div class="col-sm-5 col-xs-12 slide-content">
+                            <span class="title">{{ s.category }}</span>
+                            <h3 class="no-underline">{{ s.name }}</h3>
+
+                            <p>{{ s.description }}</p>
+                            <p><a href="#" class="arrow-button">Анкета</a></p>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 col-sm-push-1 slide-video">
+                            <a href="https://youtu.be/S-UPJyEHmM0" data-vbtype="video" class="venobox video">
+                                <i class="material-icons">play_arrow</i>
+                                <img src="{{ s.image.url }}" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="slick-carousel" id="comingSoon">
+                        {% for s in stars %}
+                        <div data-dynamicclass="slide{{ s.id }}">
+                            <a href="#">
+                                <img src="{{ s.image.url }}" alt="">
+                            </a>
+                            <h5 class="left no-underline">{{ s.name }}</h5>
+                            <span class="release-date">{{ s.category }}</span>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container section small-padding">
+        <div class="row">
+            <div class="col-sm-12 cta">
+                <p>Возникли вопросы?</p>
+                <p class="gradient-text">0554 730 944</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block page %}
+
+    <div id="content_hero" style="background-image: url({% static 'images/hero-whats-on.jpg' %})">
+
+        <div class="container">
+{% block congratulations %}active{% endblock %}
+
+            <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0"
+                 data-translatey="100">
+                <div class="col-md-9">
+                    <span class="title">Каталог</span>
+                    <h1>Всех звезд</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section negative-margin">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="live-search">
+                    <input type="text" id="search" placeholder="Поиск">
+                    <i class="material-icons">search</i>
+                </div>
+                <div class="tabs movies">
+                    <ul>
+                       {% for c in category %}
+                        <li><a href="#{{ c.id }}">{{ c.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div id="{{ cat1.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat1.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="single-movie.html" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                    <div id="{{ cat2.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat2.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="single-movie.html" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div id="{{ cat3.id }}">
+                        {% for s in stars %}
+                        {% if s.category.id == cat3.id %}
+                        <div class="row movie-tabs">
+                            <div class="col-md-2 col-sm-3">
+                                <a href="{% url 'congratulations' s.pk %}">
+                                    <img src="{{ s.image.url }}" alt="Movie title"/>
+                                </a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <span class="title">{{ s.category }}</span>
+                                <h3 class="no-underline">{{ s.name }}</h3>
+                                <p>{{ s.description }} </p>
+                                <p><a href="single-movie.html" class="arrow-button">Подробнее</a></p>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-9">
+                                        <hr class="space-10"/>
+                                        <span class="viewing-times">
+                                            Цена видеопоздравления
+                                        </span>
+
+                                        <span class="time">{{ s.price }}</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section small-padding border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 cta">
+                   <p>Возникли вопросы?</p>
+                    <p class="gradient-text">0554 730 944</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

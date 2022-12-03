@@ -1,0 +1,60 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block page %}
+
+
+    <div id="content_hero" style="background-image: url({% static 'images/hero-news.jpg' %})">
+        <img src="{% static 'images/scroll-arrow.svg' %}" alt="Scroll down" class="scroll"/>
+
+        <div class="container">
+            {%block toasts%} active {%endblock%}
+
+            <div class="row blurb scrollme animateme" data-when="exit" data-from="0" data-to="1" data-opacity="0"
+                 data-translatey="100">
+                <div class="col-md-9">
+                    <span class="title">Тосты</span>
+                    <h1>Тосты на все случаи жизни</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container section news">
+        <div class="row">
+            <div class="col-sm-7">
+                {% for t in toast %}
+                <article id="t.category">
+
+                    <span class="categories">{{t.category}}</span>
+                    <h2 class="no-underline">{{t.title}}</h2>
+                    <p>{{t.text}}</p>
+
+                </article>
+                {% endfor %}
+
+            </div>
+            <aside class="col-sm-3 col-sm-push-1 sidebar">
+                <div class="widget">
+                    <form>
+                        <input type="text" placeholder="Поиск..." class="search"/>
+                        <i class="material-icons">search</i>
+                    </form>
+                </div>
+                <div class="widget">
+                    <h3>Категории</h3>
+                    <ul>
+                        <li><a href="#">Все</a></li>
+                        {% for c in category %}
+                        <li><a href="#">{{c.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+
+
+{% endblock %}
